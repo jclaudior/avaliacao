@@ -30,8 +30,6 @@ public class TurmaService {
     @Autowired
     TurmaBO turmaBO;
 
-    SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
-
     public List<TurmaDTO> listar(){
         List<TurmaEntity> listEntity = turmaRepository.findAll();
         List<TurmaDTO> listDTO = new ArrayList<>();

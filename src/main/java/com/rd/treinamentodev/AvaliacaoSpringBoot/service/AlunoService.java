@@ -21,14 +21,14 @@ public class AlunoService {
         if(alunoRepository.findByCpf(alunoDTO.getCpf()).size() > 0){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Aluno com este CPF ja cadastrado na base de dados");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
-        }else {
-            AlunoEntity entity = new AlunoEntity();
-            entity.setNomeAluno(alunoDTO.getNome());
-            entity.setCpf(alunoDTO.getCpf());
-            entity = alunoRepository.save(entity);
-            resultData = new ResultData(HttpStatus.CREATED.value(), "Aluno cadastrado com sucesso", entity.getIdAluno());
-            return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
         }
+        AlunoEntity entity = new AlunoEntity();
+        entity.setNomeAluno(alunoDTO.getNome());
+        entity.setCpf(alunoDTO.getCpf());
+        entity = alunoRepository.save(entity);
+        resultData = new ResultData(HttpStatus.CREATED.value(), "Aluno cadastrado com sucesso", entity.getIdAluno());
+        return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
+
 
 
     }
