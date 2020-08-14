@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "TB_TURMA")
-@Data
 public class TurmaEntity {
 
     @Id
